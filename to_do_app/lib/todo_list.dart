@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_list/Cubit/todo_cubit.dart';
+import 'package:todo_list/bloc/todo_bloc.dart';
 import 'package:todo_list/models/todo_model.dart';
 
 class TodoList extends StatelessWidget {
@@ -13,7 +14,7 @@ class TodoList extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Todo List'),
       ),
-      body: BlocBuilder<TodoCubit, List<ToDo>>(
+      body: BlocBuilder<TodoBloc, List<ToDo>>(
         builder: (context, todos) {
           return ListView.builder(
               itemCount: todos.length,

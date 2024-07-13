@@ -6,7 +6,7 @@ class TodoCubit extends Cubit<List<ToDo>> {
       : super([
           // ToDo(name: "First", createdAt: DateTime.now()),
           // ToDo(name: "sec", createdAt: DateTime.now()),
-          ToDo(name: "third", createdAt: DateTime.now())
+          // ToDo(name: "third", createdAt: DateTime.now())
         ]);
 
   void addToDo(String title) {
