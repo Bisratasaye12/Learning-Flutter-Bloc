@@ -9,7 +9,6 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todo List'),
@@ -23,6 +22,12 @@ class TodoList extends StatelessWidget {
                 return ListTile(
                   title: Text(todo.name),
                   subtitle: Text(todo.createdAt.toString()),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () {
+                      BlocProvider.of<TodoBloc>(context).add(ToDoRemoved(todo: todo));
+                    },
+                  ),
                 );
               });
         },

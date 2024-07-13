@@ -8,5 +8,10 @@ class TodoBloc extends Bloc<TodoEvent, List<ToDo>> {
     on<ToDoAdded>((event, emit) {
       emit([...state, ToDo(name: event.title, createdAt: DateTime.now())]);
     });
+
+    on<ToDoRemoved>((event, emit) {
+      state.remove(event.todo);
+      emit([...state]);
+    });
   }
 }
