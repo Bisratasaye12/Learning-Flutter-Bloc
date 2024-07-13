@@ -1,4 +1,5 @@
 import 'package:counter_app_with_cubit/Cubit/counter_cubit.dart';
+import 'package:counter_app_with_cubit/bloc/counter_bloc.dart';
 import 'package:counter_app_with_cubit/extra_inc_dec.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,8 +31,7 @@ class _MyHomePageState extends State<HomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder<CounterCubit, int>(
-                bloc: counterCubit,
+            BlocBuilder<CounterBloc, int>(
                 builder: (context, counter) {
                   return Text(
                     '$counter',

@@ -1,4 +1,5 @@
 import 'package:counter_app_with_cubit/Cubit/counter_cubit.dart';
+import 'package:counter_app_with_cubit/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,7 +8,8 @@ class ExtraIncDec extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counterCubit = BlocProvider.of<CounterCubit>(context);
+    // final counterCubit = BlocProvider.of<CounterCubit>(context);
+    final counterBloc = BlocProvider.of<CounterBloc>(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -21,7 +23,9 @@ class ExtraIncDec extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: counterCubit.increment,
+            onPressed: () {
+              counterBloc.add(CountIncremented());
+            },
             tooltip: 'Increment',
             child: const Icon(Icons.arrow_upward),
           ),
@@ -29,7 +33,9 @@ class ExtraIncDec extends StatelessWidget {
             height: 5,
           ),
           FloatingActionButton(
-            onPressed: counterCubit.decrement,
+            onPressed: () {
+              counterBloc.add(CountDecremented());
+            },
             tooltip: 'Decrement',
             child: const Icon(Icons.arrow_downward),
           ),
